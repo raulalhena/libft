@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlopez-m <rlopez-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 20:06:21 by rlopez-m          #+#    #+#             */
-/*   Updated: 2022/01/20 19:15:53 by rlopez-m         ###   ########.fr       */
+/*   Created: 2022/01/20 19:33:23 by rlopez-m          #+#    #+#             */
+/*   Updated: 2022/01/20 20:14:20 by rlopez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	if (n == -2147483648)
+	t_list	*lst_tmp;
+	size_t	c;
+
+	c = 0;
+	lst_tmp = lst;
+	while (lst_tmp != NULL)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(214748364, fd);
-		ft_putchar_fd('8', fd);
+		lst_tmp = lst_tmp->next;
+		c++;
 	}
-	else if (n >= 0 && n < 10)
-	{
-		ft_putchar_fd((n + '0'), fd);
-	}
-	else if (n >= 10)
-	{
-		ft_putnbr_fd((n / 10), fd);
-		ft_putchar_fd((n % 10 + '0'), fd);
-	}
-	else
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd((n * -1), fd);
-	}
+	return (c);
 }

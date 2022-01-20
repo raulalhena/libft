@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlopez-m <rlopez-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 20:06:21 by rlopez-m          #+#    #+#             */
-/*   Updated: 2022/01/20 19:15:53 by rlopez-m         ###   ########.fr       */
+/*   Created: 2022/01/20 19:20:24 by rlopez-m          #+#    #+#             */
+/*   Updated: 2022/01/20 19:24:25 by rlopez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(214748364, fd);
-		ft_putchar_fd('8', fd);
-	}
-	else if (n >= 0 && n < 10)
-	{
-		ft_putchar_fd((n + '0'), fd);
-	}
-	else if (n >= 10)
-	{
-		ft_putnbr_fd((n / 10), fd);
-		ft_putchar_fd((n % 10 + '0'), fd);
-	}
-	else
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd((n * -1), fd);
-	}
+	t_list	*node;
+
+	node = (t_list *) malloc(sizeof(t_list) * 1);
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

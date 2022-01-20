@@ -288,7 +288,7 @@ int main(void)
 
 	// char str1[] = "hola";
 	
-	// printf("ft_substr: %s\n", str1);
+	// printf("ft_substr: %s\n", ft_substr(str1, 0, 18446744073709551615));
 
 	// *****************
 	// ft_substr test
@@ -364,6 +364,18 @@ int main(void)
 	// 	i++;
 	// }
 
+	// char *s = "      split       this for   me  !       ";
+	// char c = ' ';
+	// char **res = ft_split(s, c);
+	// int i = 0;
+	// while (i < 5)
+	// {
+	// 	printf("res:%s", res[i]);
+	// 	printf("\n");
+	// 	i++;
+	// }
+	
+
 	// *****************
 	// ft_itoa test
 	// *****************
@@ -382,5 +394,35 @@ int main(void)
 	// ft_putnbr_fd test
 	// *****************
 
-	ft_putnbr_fd(5444, 1);
+	// int i = 0;
+
+	// ft_putnbr_fd(-2147483648, 1);
+	// while (i <= 2147483647)
+	// {
+	// 	ft_putnbr_fd(i, 1);
+	// 	printf("\n");
+	// 	i++;
+	// }
+
+	// *****************
+	// ft_lstsize test
+	// *****************
+
+	// t_list *l;
+	// int actual;
+	// int expected;
+
+	// l = ft_lstnew(ft_strdup("1"));
+	// l->next = ft_lstnew(ft_strdup("2"));
+	// l->next->next = ft_lstnew(ft_strdup("3"));
+	// printf("%d\n", ft_lstsize(l));
+
+	// *******************
+	// ft_lstadd_back test
+	// *******************
+
+	// t_list	*l = ((void *)0);
+	// t_list	*h = ft_lstnew(ft_strdup("OK"));
+
+	// printf("res: %s\n", l->content);
 }
