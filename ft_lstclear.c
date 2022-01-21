@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlopez-m <rlopez-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 14:34:22 by rlopez-m          #+#    #+#             */
-/*   Updated: 2022/01/21 18:07:45 by rlopez-m         ###   ########.fr       */
+/*   Created: 2022/01/21 15:08:04 by rlopez-m          #+#    #+#             */
+/*   Updated: 2022/01/21 18:05:17 by rlopez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	t_list	*lst_tmp;
+
+	while (*lst != NULL)
+	{
+		lst_tmp = *lst;
+		*lst = (*lst)->next;
+		(*del)(lst_tmp->content);
+		free(lst_tmp);
+	}
 }

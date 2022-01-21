@@ -6,12 +6,11 @@
 /*   By: rlopez-m <rlopez-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:53:08 by rlopez-m          #+#    #+#             */
-/*   Updated: 2022/01/16 18:57:22 by rlopez-m         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:08:14 by rlopez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

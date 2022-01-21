@@ -4,6 +4,11 @@
 #include <ctype.h>
 #include "libft.h"
 
+void delin(void *elem)
+{
+		printf("delin content:\n");
+}
+
 int main(void)
 {
 	// char c = 32;
@@ -425,4 +430,18 @@ int main(void)
 	// t_list	*h = ft_lstnew(ft_strdup("OK"));
 
 	// printf("res: %s\n", l->content);
+
+	// *******************
+	// ft_lstclear test
+	// *******************
+
+	// t_list *l = ft_lstnew(ft_strdup("uno"));
+	
+	// l->next = ft_lstnew(ft_strdup("dos"));
+	// printf("p1: %p\n", l);
+	// printf("p2: %p\n", l->next);
+	
+	// ft_lstclear(&l, delin);
+
+	
 }

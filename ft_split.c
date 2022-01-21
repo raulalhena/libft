@@ -6,12 +6,11 @@
 /*   By: rlopez-m <rlopez-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:12 by rlopez-m          #+#    #+#             */
-/*   Updated: 2022/01/20 18:12:13 by rlopez-m         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:08:29 by rlopez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	**ft_free_arr(char **s, size_t arr_len)
 {
