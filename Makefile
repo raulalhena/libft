@@ -1,5 +1,9 @@
 NAME		= libft.a
 
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra
+
+INCS		= libft.h
 SRCS		= ft_memset.c \
 			  ft_bzero.c \
 			  ft_memcpy.c \
@@ -34,8 +38,9 @@ SRCS		= ft_memset.c \
 			  ft_putchar_fd.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
-			  ft_putnbr_fd.c \
-			  ft_lstnew.c \
+			  ft_putnbr_fd.c
+
+SRCS_BONUS	= ft_lstnew.c \
 			  ft_lstadd_front.c \
 			  ft_lstsize.c \
 			  ft_lstlast.c \
@@ -45,20 +50,30 @@ SRCS		= ft_memset.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c
 				
-OBJS		= $(SRCS:%.c=%.o)
+OBJS		= $(SRCS:.c=.o)
+OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
-FLAGS		= -Wall -Werror -Wextra
+all:	$(NAME)
 
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I ./
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(INCS)
+	ar -rcs	$@ $^
+	ranlib $(NAME)
 
-all: $(NAME)
+bonus: $(NAME) $(OBJS_BONUS)
+	ar -rcs $^
+	ranlib $(NAME)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-	rm -f $(OBJS) $(BNS_OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+rebonus: fclean bonus
+
+.PHONY:	all clean fclean re bonus rebonus
